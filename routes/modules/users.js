@@ -41,5 +41,9 @@ router.post("/register", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+router.get("/logout", (req, res) => {
+  req.logout(); //req.logout() 是 Passport.js 提供的函式
+  res.redirect("/users/login");
+});
 
 module.exports = router;
