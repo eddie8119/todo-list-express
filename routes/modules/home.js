@@ -4,7 +4,8 @@ const router = express.Router();
 const Todo = require("../../models/todo");
 
 router.get("/", (req, res) => {
-  Todo.find()
+  const userId = req.user._id;
+  Todo.find({ userId })
     .lean()
     //資料庫那邊，資料產生的順序不一定會按編號排
     // 根據 _id 升冪排序 Mongoose 提供的 .sort()
