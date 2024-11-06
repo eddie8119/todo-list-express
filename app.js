@@ -22,7 +22,7 @@ app.set("view engine", "hbs");
 
 app.use(
   session({
-    secret: "ThisIsMySecret",
+    secret: process.env.SESSION_SECRET,
     resave: false, //true 時，把 session 更新到 session store 裡。
     saveUninitialized: true,
   })
